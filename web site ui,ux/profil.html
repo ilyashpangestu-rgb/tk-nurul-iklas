@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - TK Nurul Ikhlas</title>
+    <style>
+        :root {
+            --primary: #4A90E2;
+            --accent: #FF85A1;
+            --yellow: #FFD93D;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            background: #fff9e6; /* Warna kuning krem lembut */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px;
+            background: white;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .btn-kembali {
+            text-decoration: none;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            margin: 30px 0;
+            border-radius: 40px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 8px solid var(--yellow);
+        }
+
+        .foto-sekolah {
+            width: 100%;
+            height: 300px;
+            background: #eee;
+            border-radius: 25px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 5px solid #f0f0f0;
+        }
+
+        .foto-sekolah img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 { color: var(--primary); text-align: center; font-size: 2.5rem; margin-top: 0; }
+        h2 { color: var(--accent); border-left: 10px solid var(--yellow); padding-left: 15px; }
+
+        .deskripsi {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .visi-misi {
+            background: #f0f7fa;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        .kontak-box {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #eee;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item span {
+            display: block;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="btn-kembali">⬅ Kembali</a>
+        <div style="flex-grow: 1; text-align: center; font-weight: bold; font-size: 1.2rem; color: var(--primary);">
+            Profil Sekolah
+        </div>
+        <div style="width: 80px;"></div>
+    </header>
+
+    <div class="container">
+        <!-- Ganti 'foto-gedung.jpg' dengan foto sekolahmu nanti -->
+        <div class="foto-sekolah">
+            <img src="https://images.unsplash.com/photo-1544717297-fa95b3ee51f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Gedung TK Nurul Ikhlas">
+        </div>
+
+        <h1>TK Nurul Ikhlas</h1>
+        
+        <p class="deskripsi">
+            Selamat Datang di <strong>TK Nurul Ikhlas</strong>! Kami adalah sekolah taman kanak-kanak yang berfokus pada pendidikan karakter, kemandirian, dan kreativitas anak sejak dini dengan suasana yang islami dan menyenangkan.
+        </p>
+
+        <div class="visi-misi">
+            <h2>Visi</h2>
+            <p>"Terwujudnya anak didik yang bertaqwa, cerdas, kreatif, dan berakhlak mulia."</p>
+            
+            <h2>Misi</h2>
+            <ul>
+                <li>Mengenalkan nilai-nilai agama sejak dini.</li>
+                <li>Mengembangkan bakat dan minat anak melalui bermain sambil belajar.</li>
+                <li>Membangun kemandirian dan rasa percaya diri pada anak.</li>
+            </ul>
+        </div>
+
+        <h2>Hubungi Kami</h2>
+        <div class="kontak-box">
+            <div class="info-item">
+                <span>📍</span>
+                <strong>Alamat</strong>
+                <p>Jl.pondok petir,serua bulak
+                <p>,kota Depok, Indonesia</p>
+            </div>
+            <div class="info-item">
+                <span>📞</span>
+                <strong>Telepon</strong>
+                <p>ibu Riska
+                <p>0838-1533-5005 </p>    
+            </div>
+            <div class="info-item">
+                <span>⏰</span>
+                <strong>Jam Sekolah</strong>
+                <li>07.30 - 11.00 Tk B WIB
+                <li>09.30 - 12.00 Tk A WIB
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <p style="color: #999; margin-bottom: 30px;">© 2026 TK Nurul Ikhlas</p>
+
+</body>
+</html>

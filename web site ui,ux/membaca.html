@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membaca A-Z - Taman Huruf</title>
+    <style>
+        :root {
+            --pink: #FF85A1;
+            --blue: #4A90E2;
+            --yellow: #FFD93D;
+            --green: #6BCB77;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            background: #f0f9ff;
+            background-image: radial-gradient(#d1e9ff 2px, transparent 2px);
+            background-size: 30px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Navigasi Atas */
+        header {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .btn-kembali {
+            text-decoration: none;
+            background: var(--pink);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            float: left;
+            transition: 0.3s;
+        }
+
+        /* Area Kartu Huruf */
+        .alphabet-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1000px;
+            padding: 40px 0;
+        }
+
+        .card {
+            background: white;
+            height: 150px;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 0px #ddd;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 3px solid transparent;
+        }
+
+        /* Efek saat diklik & hover */
+        .card:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card:active {
+            transform: scale(0.9);
+            box-shadow: 0 2px 0px #ddd;
+            top: 6px;
+        }
+
+        .huruf-besar {
+            font-size: 60px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .huruf-kecil {
+            font-size: 20px;
+            color: #888;
+            margin: 0;
+        }
+
+        /* Variasi Warna Kartu */
+        .c1 { border-color: var(--pink); color: var(--pink); }
+        .c2 { border-color: var(--blue); color: var(--blue); }
+        .c3 { border-color: var(--green); color: var(--green); }
+        .c4 { border-color: #A66CFF; color: #A66CFF; }
+        .c5 { border-color: #FF9F43; color: #FF9F43; }
+
+        /* Petunjuk */
+        .hint {
+            background: var(--yellow);
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="btn-kembali">⬅ Menu</a>
+        <h1 style="margin: 0; color: #333;">📖 Taman Huruf A-Z</h1>
+    </header>
+
+    <div class="hint">Klik hurufnya untuk mendengar suara! 🔊</div>
+
+    <div class="alphabet-container" id="boxHuruf">
+        <!-- Huruf akan dibuat otomatis oleh JavaScript di bawah -->
+    </div>
+
+    <script>
+        const abjad = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        const container = document.getElementById('boxHuruf');
+        const warna = ['c1', 'c2', 'c3', 'c4', 'c5'];
+
+        // Membuat kartu A sampai Z secara otomatis
+        abjad.forEach((huruf, index) => {
+            const kartu = document.createElement('div');
+            const warnaAcak = warna[index % warna.length];
+            
+            kartu.className = `card ${warnaAcak}`;
+            kartu.innerHTML = `
+                <p class="huruf-besar">${huruf}</p>
+                <p class="huruf-kecil">${huruf.toLowerCase()}${huruf.toLowerCase()}</p>
+            `;
+
+            // Fungsi Suara saat diklik
+            kartu.onclick = () => {
+                suaraHuruf(huruf);
+            };
+
+            container.appendChild(kartu);
+        });
+
+        function suaraHuruf(h) {
+            const pesan = new SpeechSynthesisUtterance(h);
+            pesan.lang = 'id-ID'; // Bahasa Indonesia
+            pesan.rate = 0.8;     // Kecepatan bicara sedikit lambat agar jelas
+            window.speechSynthesis.speak(pesan);
+        }
+    </script>
+
+</body>
+</html>
